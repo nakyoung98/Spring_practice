@@ -1,5 +1,6 @@
 HELP.md
 .gradle
+### 빌드된 결과물은 올라가면 안됨 ###
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
