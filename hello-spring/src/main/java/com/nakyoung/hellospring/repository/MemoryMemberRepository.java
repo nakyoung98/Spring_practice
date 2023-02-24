@@ -1,10 +1,12 @@
 package com.nakyoung.hellospring.repository;
 
 import com.nakyoung.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
+//Repository라고 bin에 담아두는 것
 public class MemoryMemberRepository implements MemberRepository{
 
     //save시 저장할 변수

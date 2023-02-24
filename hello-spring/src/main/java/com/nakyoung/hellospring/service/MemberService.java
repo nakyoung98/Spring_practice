@@ -3,6 +3,8 @@ package com.nakyoung.hellospring.service;
 import com.nakyoung.hellospring.domain.Member;
 import com.nakyoung.hellospring.repository.MemberRepository;
 import com.nakyoung.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,12 +12,16 @@ import java.util.concurrent.atomic.AtomicLong;
 
 // service class의 함수 네이밍은 비즈니스적으로 짓는 것이 좋음
 // Test를 쉽게 만드는 법 -> 클래스명에 커서대로 ctrl+shift+t(est) -> test생성으로 넘어감
+
+//Service 어노테이션이 궁금하면 MemberController 파일로 이동
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public MemberService(MemoryMemberRepository memoryMemberRepository){
-        this.memberRepository = memoryMemberRepository;
+    //Autowired가 궁금하면 MemberController의 Autowired를 확인
+    @Autowired
+    public MemberService(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
     }
 
     /**
