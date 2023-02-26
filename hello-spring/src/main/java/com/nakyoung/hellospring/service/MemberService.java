@@ -5,6 +5,7 @@ import com.nakyoung.hellospring.repository.MemberRepository;
 import com.nakyoung.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,6 +28,8 @@ public class MemberService {
     /**
      * 회원가입
      * **/
+
+    @Transactional
     public Long join(Member member){
         //중복 이름 회원 X
 

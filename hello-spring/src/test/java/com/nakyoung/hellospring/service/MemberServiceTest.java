@@ -1,6 +1,8 @@
 package com.nakyoung.hellospring.service;
 
 import com.nakyoung.hellospring.domain.Member;
+import com.nakyoung.hellospring.repository.JpaMemberRepository;
+import com.nakyoung.hellospring.repository.MemberRepository;
 import com.nakyoung.hellospring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -13,20 +15,21 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberServiceTest {
 
     MemberService memberService;
-    MemoryMemberRepository memoryMemberRepository;
+    MemberRepository memberRepository;
 
     @BeforeEach
     public void beforeEach(){
-        memoryMemberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memoryMemberRepository);
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
     }
 
     @AfterEach
-    public void afterEach(){
-        memoryMemberRepository.clearStore();
+    public void afterEach() {
+        ((MemoryMemberRepository) memberRepository).clearStore();
     }
-    //Test 코드는 한글로도 많이 적음
 
+
+    //Test 코드는 한글로도 많이 적음
     @Test
     void 회원가입() {
         //given (주어진 것)
